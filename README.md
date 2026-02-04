@@ -158,9 +158,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-Your Name - [@yourusername](https://github.com/yourusername)
+Your Name - [@akshitjain1](https://github.com/akshitjain1)
 
-Project Link: [https://github.com/yourusername/campusmart](https://github.com/yourusername/campusmart)
+Project Link: [https://github.com/akshitjain1/django_ecommerce_1](https://github.com/yourusername/campusmart)
 
 ## Acknowledgments
 
