@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-8">Admin Dashboard</h1>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <div class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-textmuted">Total Products</h2>
+        <p class="text-3xl font-bold">{{ products }}</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-textmuted">Total Orders</h2>
+        <p class="text-3xl font-bold">{{ orders }}</p>
+    </div>
+
+    <div class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-textmuted">Low Stock Alerts</h2>
+        <p class="text-3xl font-bold text-error">{{ low_stock }}</p>
+    </div>
+
+</div>
+
+{% endblock %}

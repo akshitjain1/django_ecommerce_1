@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-6">All Orders</h1>
+
+<table class="w-full bg-white rounded-xl shadow overflow-hidden">
+    <tr class="bg-gray-100">
+        <th class="p-3 text-left">Order ID</th>
+        <th class="p-3 text-left">User</th>
+        <th class="p-3 text-left">Date</th>
+        <th class="p-3 text-left">Status</th>
+        <th class="p-3 text-left">Action</th>
+    </tr>
+
+    {% for order in orders %}
+    <tr class="border-t">
+        <td class="p-3">#{{ order.id }}</td>
+        <td class="p-3">{{ order.user.username }}</td>
+        <td class="p-3">{{ order.created_at|date:"d M Y H:i" }}</td>
+        <td class="p-3">
+            {% if order.is_completed %}
+                <span class="text-success font-semibold">Completed</span>
+            {% else %}
+                <span class="text-warning font-semibold">Pending</span>
+            {% endif %}
+        </td>
+        <td class="p-3">
+            <a href="/admin-panel/orders/{{ order.id }}/"
+               class="text-primary hover:underline">
+                View
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

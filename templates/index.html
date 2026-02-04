@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-20">
+
+    <!-- LEFT CONTENT -->
+    <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+            From <span class="text-primary">Campus</span> to  
+            <span class="text-primary">Career</span>
+        </h1>
+
+        <p class="text-textmuted text-lg">
+            Notes, projects, templates & tools — everything students need,
+            curated and verified.
+        </p>
+
+        <div class="flex gap-4">
+            <a href="/products/"
+               class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                Browse Products
+            </a>
+
+            <a href="#categories"
+               class="border border-primary text-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition">
+                Free Resources
+            </a>
+        </div>
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="hidden md:flex justify-center">
+        <div class="bg-accent/20 p-10 rounded-full">
+            <span class="text-6xl">💻📘📊</span>
+        </div>
+    </div>
+
+</section>
+<!-- CATEGORIES -->
+<section id="categories" class="mb-20">
+
+    <h2 class="text-3xl font-bold mb-8">Explore Categories</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="font-semibold text-lg">📘 Notes</h3>
+            <p class="text-textmuted text-sm">Semester-wise notes</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="font-semibold text-lg">🧠 Exam Packs</h3>
+            <p class="text-textmuted text-sm">Quick revision kits</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="font-semibold text-lg">💻 Cheat Sheets</h3>
+            <p class="text-textmuted text-sm">Last-minute help</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="font-semibold text-lg">📄 Resume Templates</h3>
+            <p class="text-textmuted text-sm">ATS-friendly formats</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="font-semibold text-lg">🤖 AI Prompts</h3>
+            <p class="text-textmuted text-sm">Productivity boosters</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+            <h3 class="font-semibold text-lg">📊 Mini Projects</h3>
+            <p class="text-textmuted text-sm">Portfolio ready</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- WHY SECTION -->
+<section class="bg-white p-10 rounded-xl shadow mb-20">
+
+    <h2 class="text-3xl font-bold mb-8">Why CampusMart?</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+
+        <div>
+            <div class="text-3xl mb-2">⚡</div>
+            <h3 class="font-semibold">Instant Access</h3>
+            <p class="text-textmuted text-sm">Download immediately</p>
+        </div>
+
+        <div>
+            <div class="text-3xl mb-2">🎯</div>
+            <h3 class="font-semibold">Placement Oriented</h3>
+            <p class="text-textmuted text-sm">Industry relevant</p>
+        </div>
+
+        <div>
+            <div class="text-3xl mb-2">💸</div>
+            <h3 class="font-semibold">Student Pricing</h3>
+            <p class="text-textmuted text-sm">Affordable for everyone</p>
+        </div>
+
+        <div>
+            <div class="text-3xl mb-2">✅</div>
+            <h3 class="font-semibold">Verified Content</h3>
+            <p class="text-textmuted text-sm">Quality assured</p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

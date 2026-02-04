@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold">Manage Products</h1>
+    <a href="/admin-panel/products/add/"
+       class="bg-primary text-white px-4 py-2 rounded">
+       + Add Product
+    </a>
+</div>
+
+<table class="w-full bg-white rounded-xl shadow overflow-hidden">
+    <tr class="bg-gray-100 text-left">
+        <th class="p-3">Name</th>
+        <th class="p-3">Price</th>
+        <th class="p-3">Stock</th>
+        <th class="p-3">Actions</th>
+    </tr>
+
+    {% for p in products %}
+    <tr class="border-t">
+        <td class="p-3">{{ p.name }}</td>
+        <td class="p-3">₹{{ p.price }}</td>
+        <td class="p-3">{{ p.quantity }}</td>
+        <td class="p-3 space-x-3">
+            <a href="/admin-panel/products/edit/{{ p.id }}/"
+               class="text-primary">Edit</a>
+            <a href="/admin-panel/products/delete/{{ p.id }}/"
+               class="text-error"
+               onclick="return confirm('Delete this product?')">
+               Delete
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<!-- PAGINATION -->
+{% if products.has_other_pages %}
+<div class="flex justify-center mt-6 gap-2">
+
+    {% if products.has_previous %}
+        <a href="?page={{ products.previous_page_number }}"
+           class="px-4 py-2 border rounded">
+           Prev
+        </a>
+    {% endif %}
+
+    <span class="px-4 py-2">
+        Page {{ products.number }} of {{ products.paginator.num_pages }}
+    </span>
+
+    {% if products.has_next %}
+        <a href="?page={{ products.next_page_number }}"
+           class="px-4 py-2 border rounded">
+           Next
+        </a>
+    {% endif %}
+
+</div>
+{% endif %}
+
+{% endblock %}

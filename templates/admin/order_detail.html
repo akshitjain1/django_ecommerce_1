@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-6">
+    Order #{{ order.id }}
+</h1>
+
+<p class="text-textmuted mb-4">
+    Placed by <strong>{{ order.user.username }}</strong>
+    on {{ order.created_at|date:"d M Y, H:i" }}
+</p>
+
+<div class="bg-white p-6 rounded-xl shadow">
+    <h2 class="font-semibold mb-4">Order Items</h2>
+
+    <ul class="space-y-2">
+        {% for item in order.orderitem_set.all %}
+        <li class="flex justify-between border-b pb-2">
+            <span>{{ item.product.name }}</span>
+            <span>x{{ item.quantity }}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

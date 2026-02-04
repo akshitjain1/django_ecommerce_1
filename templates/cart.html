@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="text-3xl font-bold mb-6">Your Cart</h1>
+
+{% if cart %}
+<div class="space-y-6">
+  {% for id, item in cart.items %}
+  <div class="bg-white p-4 rounded-xl shadow flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <img src="{{ item.image }}" class="w-20 h-20 object-cover rounded" />
+      <div>
+        <h2 class="font-semibold">{{ item.name }}</h2>
+        <p class="text-textmuted">₹{{ item.price }}</p>
+        <div class="flex items-center gap-3 mt-2">
+          <a
+            href="/update/{{ id }}/decrease/"
+            class="px-4 py-2 border rounded text-lg hover:bg-gray-100"
+          >
+            −
+          </a>
+
+          <span class="font-semibold">{{ item.quantity }}</span>
+
+          <a
+            href="/update/{{ id }}/increase/"
+            class="px-4 py-2 border rounded text-lg hover:bg-gray-100"
+          >
+            +
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a href="/remove/{{ id }}/" class="text-error hover:underline"> Remove </a>
+  </div>
+  {% endfor %}
+
+  <div class="text-right">
+    <h2 class="text-xl font-bold">Total: ₹{{ total }}</h2>
+    <a
+      href="/place-order/"
+      class="inline-block mt-4 bg-success text-white px-6 py-3 rounded-lg"
+    >
+      Place Order
+    </a>
+  </div>
+</div>
+{% else %}
+<div class="text-center py-20">
+    <div class="text-6xl mb-4">🛒</div>
+    <h2 class="text-2xl font-semibold mb-2">Your cart is empty</h2>
+    <p class="text-textmuted mb-6">
+        Looks like you haven’t added anything yet.
+    </p>
+    <a href="/products/"
+       class="bg-primary text-white px-6 py-3 rounded-lg">
+        Browse Products
+    </a>
+</div>
+{% endif %}
+
+{% endblock %}

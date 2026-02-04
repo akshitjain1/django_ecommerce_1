@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+  <!-- IMAGE -->
+  <div class="bg-white p-6 rounded-xl shadow flex justify-center">
+    <img src="{{ product.image.url }}" class="max-h-96 object-contain" />
+  </div>
+
+  <!-- PRODUCT INFO -->
+  <div class="space-y-4">
+    <h1 class="text-3xl font-bold">{{ product.name }}</h1>
+
+    <p class="text-primary text-2xl font-semibold">₹{{ product.price }}</p>
+
+    {% if product.quantity > 0 %}
+    <span class="inline-block bg-success text-white px-3 py-1 rounded">
+      In Stock ({{ product.quantity }})
+    </span>
+    {% else %}
+    <span class="inline-block bg-error text-white px-3 py-1 rounded">
+      Out of Stock
+    </span>
+    {% endif %}
+
+    <p class="text-textmuted mt-4">{{ product.description }}</p>
+
+    {% if product.quantity > 0 %}
+<div class="md:static fixed bottom-20 left-0 right-0 px-4">
+    <a href="/add/{{ product.id }}/"
+       class="block text-center bg-primary text-white px-6 py-4 rounded-lg shadow-lg">
+        Add to Cart
+    </a>
+</div>
+{% else %}
+<div class="mt-6 text-error font-semibold">
+    This product is currently out of stock.
+</div>
+{% endif %}
+
+  </div>
+</div>
+
+{% endblock %}
